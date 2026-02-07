@@ -43,7 +43,7 @@ document.addEventListener('mousemove', (e) => {
         } else {
             icon.style.transform = 'scale(1)';
             icon.style.opacity = '0.04';
-            icon.style.filter = 'grayscale(100%)';
+            icon.style.filter = 'grayscale(30%) brightness(85%) contrast(120%)';
         }
     });
 });
@@ -53,7 +53,9 @@ createStaticBackground();
 function typeInTerminal() {
     const terminalContent = document.getElementById('terminalContent');
     const aboutText = [
-        
+        "Me llamo José Mercedes, tengo 18 años, soy un chico sencillo, lleno de apiraciones por cumplir y con muchas ganas de aprender y crecer tanto como persona y desarrollador. ",
+        "Me ha encantado la programacion desde pequeño, y desde entonces he estado anelando en convertirme en un gran desarrollador, y aunque aun me falta mucho por aprender, cada dia me esfuerzo por mejorar mis habilidades y conocimientos",
+        "Me considero una persona autodidacta y mi objetivo es seguir desarrollando proyectos innovadores que puedan tener un impacto en donde me encuentre.",
     ];
 
     let lineIndex = 0;
@@ -63,7 +65,7 @@ function typeInTerminal() {
             line.className = 'terminal-line';
             line.innerHTML = aboutText[lineIndex];
             line.style.opacity = '0';
-            line.style.animation = 'terminalFadeIn 0.2s ease forwards';
+            line.style.animation = 'terminalFadeIn 0.1s ease forwards';
             terminalContent.appendChild(line);
             lineIndex++;
             setTimeout(addLine, 400);
@@ -194,13 +196,25 @@ applyLanguage(savedLang);
 
 const projectImages = {
     0: [
-        
+        "img/farmacia_image_one.jpeg"
     ],
     1: [
-        
+        "img/baberia_image_one.jpeg",
+        "img/baberia_image_two.jpeg",
+        "img/baberia_image_three.jpeg",
+        "img/baberia_image_four.jpeg",
+        "img/baberia_image_five.jpeg",
+        "img/baberia_image_six.jpeg",
+        "img/baberia_image_seven.jpeg",
+        "img/baberia_image_eight.jpeg",
+        "img/baberia_image_nine.jpeg",
+        "img/baberia_image_ten.jpeg",
+        "img/baberia_image_eleven.jpeg",
+        "img/baberia_image_twelve.jpeg"
     ],
     2: [
-        
+        'img/removegb-picture_one.png',
+        'img/removegb-picture_two.png'
     ]
 };
 

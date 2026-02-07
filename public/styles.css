@@ -627,7 +627,7 @@ section {
     margin-bottom: 1rem;
 }
 
-.project-content p {
+.project-content p{
     color: var(--text-secundary);
     margin-bottom: 1rem;
     line-height: 1.6;
