@@ -818,10 +818,6 @@ footer {
     align-items: center;
 }
 
-.social-link-mobile {
-    display: none;
-}
-
 .social-links {
     display: flex;
     gap: 2rem;
@@ -832,14 +828,6 @@ footer {
     font-weight: 500;
     transition: color 0.3s ease;
     font-size: 1.3rem;
-}
-
-.social-link:hover {
-    color: var(--accent-color);
-}
-
-.social-link-mobile {
-    display: none;
 }
 
 .footer-text {
@@ -912,21 +900,23 @@ footer {
 
     .floating-social {
         position: static;
+        padding-bottom: 10px;
         transform: none;
         flex-direction: row;
         justify-content: center;
-        margin-top: 2rem;
+        gap: 1rem;
+        order: 3;
+    }
+
+    .floating-social .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
     }
 
     .floating-social.at-footer {
         position: static;
         transform: none;
-    }
-
-    .social-links-mobile {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
     }
 
     .hero {
@@ -939,21 +929,26 @@ footer {
     }
 
     .hero-content {
-        order: 1;
+        order: 2;
         text-align: center;
     }
 
     .hero-left {
         text-align: center;
         align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
     .hero-image-wrapper {
         justify-content: center;
+        padding-top: 2rem;
+        order: 1;
     }
 
     .hero-button-cv {
         align-self: center;
+        order: 4;
     }
 
     section {
