@@ -7,6 +7,126 @@ const techIcons = [
     'devicon-express-original', 'devicon-astro-plain'
 ];
 
+let terminalTimeout = null;
+
+const translations = {
+    es: {
+        navAbout: "Sobre mí",
+        navProjects: "Proyectos",
+        navSkills: "Habilidades",
+        navContact: "Contacto",
+
+        themeLight: "Claro",
+        themeDark: "Oscuro",
+        themeSystem: "Sistema",
+
+        langSpanish: "Español",
+        langEnglish: "English",
+
+        heroTag: "Backend",
+        heroTitle: "Hey, soy mrrobotcode",
+        heroDescription: "Desarrollador de <strong>República Dominicana</strong> especializado en crear <strong>soluciones innovadoras</strong> con tecnologías modernas.",
+        heroBadge: "Disponible para trabajar",
+        heroButton: "Descargar CV",
+
+        terminalTitle: "Windows PowerShell",
+        terminalLine1: "Microsoft Windows [Version 10.0.19044.1234]",
+        terminalLine2: "(c) Microsoft Corporation. All rights reserved.",
+        terminalCommand: "sobre_mi.exe",
+
+        aboutText1: "Me llamo José Mercedes, tengo 18 años, soy un chico sencillo, lleno de apiraciones por cumplir y con muchas ganas de aprender y crecer tanto como persona y desarrollador.",
+        aboutText2: "Me ha encantado la programacion desde pequeño, y desde entonces he estado anelando en convertirme en un gran desarrollador, y aunque aun me falta mucho por aprender, cada dia me esfuerzo por mejorar mis habilidades y conocimientos.",
+        aboutText3: "Me considero una persona autodidacta y mi objetivo es seguir desarrollando proyectos innovadores que puedan tener un impacto en donde me encuentre.",
+
+        projectsTitle: "Proyectos",
+        projectsSubtitle: "Trabajos recientes",
+        project1Title: "Sistema de Farmacia",
+        project1Desc: "Modulos de Ventas, Facturacion e Inventario y automatiza los reportes.",
+        project2Title: "App Web de Baberia",
+        project2Desc: "Automatiza las reservas, un dashboard con reportes y valoraciones.",
+        project3Title: "Remove Background App",
+        project3Desc: "Elimina el fondo de imágenes, utilizando la API de Removebg.",
+
+        skillsTitle: "Habilidades",
+        skillsSubtitle: "Tecnologías con las que trabajo",
+
+        contactTitle: "Contacto",
+        contactSubtitle: "¿Tienes un proyecto en mente? ¡Hablemos!",
+        contactIntro: "Hablemos sobre cómo puedo ayudarte a hacerlo realidad.",
+        contactName: "Nombre",
+        contactEmail: "Email",
+        contactSubject: "Asunto",
+        contactMessage: "Mensaje",
+        contactNamePlaceholder: "Tu nombre",
+        contactEmailPlaceholder: "tu@email.com",
+        contactSubjectPlaceholder: "¿De que quieres hablar?",
+        contactMessagePlaceholder: "Cuéntame sobre tu proyecto",
+        contactButton: "Enviar Mensaje",
+        contactSuccess: "¡Mensaje enviado exitosamente!",
+        contactError: "Hubo un error al enviar el mensaje.",
+
+        footerText: "Inspired by"
+    },
+
+    en: {
+        navAbout: "About",
+        navProjects: "Projects",
+        navSkills: "Skills",
+        navContact: "Contact",
+
+        themeLight: "Light",
+        themeDark: "Dark",
+        themeSystem: "System",
+
+        langSpanish: "Español",
+        langEnglish: "English",
+
+        heroTag: "Backend",
+        heroTitle: "Hey, I'm mrrobotcode",
+        heroDescription: "Developer from <strong>Dominican Republic</strong> specialized in creating <strong>innovative solutions</strong> with modern technologies.",
+        heroBadge: "Available for work",
+        heroButton: "Download CV",
+
+        terminalTitle: "Windows PowerShell",
+        terminalLine1: "Microsoft Windows [Version 10.0.19044.1234]",
+        terminalLine2: "(c) Microsoft Corporation. All rights reserved.",
+        terminalCommand: "about_me.exe",
+
+        aboutText1: "My name is José Mercedes, I'm 18 years old, I'm a simple guy, full of aspirations to fulfill and eager to learn and grow both as a person and as a developer.",
+        aboutText2: "I've loved programming since I was a kid, and since then I've been longing to become a great developer, and although I still have a lot to learn, every day I strive to improve my skills and knowledge.",
+        aboutText3: "I consider myself a self-taught person and my goal is to continue developing innovative projects that can have an impact wherever I find myself.",
+
+        projectsTitle: "Projects",
+        projectsSubtitle: "Recent work",
+        project1Title: "Pharmacy System",
+        project1Desc: "Sales, Billing and Inventory modules and automates reports.",
+        project2Title: "Barbershop Web App",
+        project2Desc: "Automates reservations, a dashboard with reports and ratings.",
+        project3Title: "Remove Background App",
+        project3Desc: "Removes background from images using the Removebg API.",
+
+        skillsTitle: "Skills",
+        skillsSubtitle: "Technologies I work with",
+
+        contactTitle: "Contact",
+        contactSubtitle: "Do you have a project in mind? Let's talk!",
+        contactIntro: "Let's talk about how I can help you make it happen.",
+        contactName: "Name",
+        contactEmail: "Email",
+        contactSubject: "Subject",
+        contactMessage: "Message",
+        contactNamePlaceholder: "Your name",
+        contactEmailPlaceholder: "your@email.com",
+        contactSubjectPlaceholder: "What do you want to talk about?",
+        contactMessagePlaceholder: "Tell me about your project",
+        contactButton: "Send Message",
+        contactSuccess: "Message sent successfully!",
+        contactError: "There was an error sending the message.",
+
+        footerText: "Inspired by"
+    }
+};
+
 function createStaticBackground() {
     const bg = document.getElementById('animatedBg');
     const iconCount = 105;
@@ -50,13 +170,24 @@ document.addEventListener('mousemove', (e) => {
 
 createStaticBackground();
 
-function typeInTerminal() {
+function typeInTerminal(skipDelay = false) {
     const terminalContent = document.getElementById('terminalContent');
+    const currentLang = localStorage.getItem('language') || 'es';
+    const elements = translations[currentLang];
+    if (terminalTimeout) {
+        clearTimeout(terminalTimeout);
+        terminalTimeout = null;
+    }
+
+    while (terminalContent.children.length > 4) {
+        terminalContent.removeChild(terminalContent.lastChild);
+    }
+
     const aboutText = [
-        "Me llamo José Mercedes, tengo 18 años, soy un chico sencillo, lleno de apiraciones por cumplir y con muchas ganas de aprender y crecer tanto como persona y desarrollador. ",
-        "Me ha encantado la programacion desde pequeño, y desde entonces he estado anelando en convertirme en un gran desarrollador, y aunque aun me falta mucho por aprender, cada dia me esfuerzo por mejorar mis habilidades y conocimientos.",
-        "Me considero una persona autodidacta y mi objetivo es seguir desarrollando proyectos innovadores que puedan tener un impacto en donde me encuentre.",
-    ];
+        elements.aboutText1,
+        elements.aboutText2,
+        elements.aboutText3
+    ]
 
     let lineIndex = 0;
     function addLine() {
@@ -65,13 +196,13 @@ function typeInTerminal() {
             line.className = 'terminal-line';
             line.innerHTML = aboutText[lineIndex];
             line.style.opacity = '0';
-            line.style.animation = 'terminalFadeIn 0.1s ease forwards';
+            line.style.animation = 'terminalFadeIn 0.3s ease forwards';
             terminalContent.appendChild(line);
             lineIndex++;
-            setTimeout(addLine, 400);
+            terminalTimeout = setTimeout(addLine, skipDelay ? 200 : 400);
         }
     }
-    setTimeout(addLine, 1000);
+    terminalTimeout = setTimeout(addLine, skipDelay ? 100 : 1000);
 }
 
 const menuToggle = document.getElementById('menuToggle');
@@ -164,9 +295,72 @@ function setupLanguageSelector(btnId, dropdownId, langId) {
     });
 }
 
+function changeLanguage(lang) {
+    const elements = translations[lang];
+
+    document.querySelector('.nav-links a[href="#sobre-mi"]').textContent = elements.navAbout;
+    document.querySelector('.nav-links a[href="#proyectos"]').textContent = elements.navProjects;
+    document.querySelector('.nav-links a[href="#habilidades"]').textContent = elements.navSkills;
+    document.querySelector('.nav-links a[href="#contacto"]').textContent = elements.navContact;
+
+    document.querySelector('.hero-tag').textContent = elements.heroTag;
+    document.querySelector('.hero h1').innerHTML = elements.heroTitle;
+    document.querySelector('.hero-description').innerHTML = elements.heroDescription;
+    document.querySelector('.availability-badge').textContent = elements.heroBadge;
+    document.querySelector('.hero-button-cv').textContent = elements.heroButton;
+
+    const terminalLines = document.querySelectorAll('.terminal-line');
+    if (terminalLines.length >= 4) {
+        terminalLines[0].textContent = elements.terminalLine1;
+        terminalLines[1].textContent = elements.terminalLine2;
+        terminalLines[3].innerHTML = `<span class="terminal-prompt">PS</span> <span class="terminal-path">C:\\Users\\Mrrobotcode></span> .\\${elements.terminalCommand}`;
+    }
+
+    typeInTerminal(true);
+
+    document.querySelector('#proyectos .section-title').textContent = elements.projectsTitle;
+    document.querySelector('#proyectos .section-subtitle').textContent = elements.projectsSubtitle;
+
+    const projectTitles = document.querySelectorAll('.project-content h3');
+    const projectDescs = document.querySelectorAll('.project-content p');
+
+    if (projectTitles[0]) projectTitles[0].textContent = elements.project1Title;
+    if (projectDescs[0]) projectDescs[0].textContent = elements.project1Desc;
+    if (projectTitles[1]) projectTitles[1].textContent = elements.project2Title;
+    if (projectDescs[1]) projectDescs[1].textContent = elements.project2Desc;
+    if (projectTitles[2]) projectTitles[2].textContent = elements.project3Title;
+    if (projectDescs[2]) projectDescs[2].textContent = elements.project3Desc;
+
+    document.querySelector('#habilidades .section-title').textContent = elements.skillsTitle;
+    document.querySelector('#habilidades .section-subtitle').textContent = elements.skillsSubtitle;
+
+    document.querySelector('#contacto .section-title').textContent = elements.contactTitle;
+    document.querySelector('#contacto .section-subtitle').textContent = elements.contactSubtitle;
+    document.querySelector('.contact-intro p').textContent = elements.contactIntro;
+
+    const labels = document.querySelectorAll('.form-group label');
+    if (labels[0]) labels[0].innerHTML = `${elements.contactName} <span class="required">*</span>`;
+    if (labels[1]) labels[1].innerHTML = `${elements.contactEmail} <span class="required">*</span>`;
+    if (labels[2]) labels[2].innerHTML = `${elements.contactSubject} <span class="required">*</span>`;
+    if (labels[3]) labels[3].innerHTML = `${elements.contactMessage} <span class="required">*</span>`;
+
+    document.getElementById('name').placeholder = elements.contactNamePlaceholder;
+    document.getElementById('email').placeholder = elements.contactEmailPlaceholder;
+    document.getElementById('subject').placeholder = elements.contactSubjectPlaceholder;
+    document.getElementById('message').placeholder = elements.contactMessagePlaceholder;
+
+    document.querySelector('.submit-btn').textContent = elements.contactButton;
+
+    window.currentLangMessages = {
+        success: elements.contactSuccess,
+        error: elements.contactError
+    };
+}
+
 function applyLanguage(lang) {
     localStorage.setItem('language', lang);
     updateLanguageDisplay(lang);
+    changeLanguage(lang);
 }
 
 function updateLanguageDisplay(lang) {
@@ -325,5 +519,8 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
 window.addEventListener('load', () => {
     document.getElementById('main-content').classList.add('visible');
+    const savedLang = localStorage.getItem('language') || 'es';
+    updateLanguageDisplay(savedLang);
+    changeLanguage(savedLang);
     typeInTerminal();
 });
