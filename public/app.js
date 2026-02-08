@@ -213,8 +213,7 @@ const projectImages = {
         "img/baberia_image_twelve.jpeg"
     ],
     2: [
-        'img/removegb-picture_one.png',
-        'img/removegb-picture_two.png'
+        'img/removegb-picture_one.png'
     ]
 };
 
@@ -271,7 +270,7 @@ function showPrevImage() {
 
 modalClose.addEventListener('click', closeModal);
 modalNext.addEventListener('click', showNextImage);
-modalPrev.addEventListener('click', showNextImage);
+modalPrev.addEventListener('click', showPrevImage);
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && imageModal.classList.contains('active')) {
