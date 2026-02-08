@@ -20,20 +20,154 @@
     --green: #10b981;
 }
 
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secundary: #f5f5f5;
+    --bg-tertiary: #e5e5e5;
+    --bg-terminal: #f8f8f8;
+    --bg-terminal-header: #000000;
+    --text-primary: #1a1a1a;
+    --text-secundary: #666666;
+    --accent-color: #000000;
+    --accent-hover: #333333;
+    --border: #d1d1d1;
+    --green: #10b981;
+}
+
+[data-theme="light"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .tech-icon-float {
+    opacity: 0.03;
+    color: var(--text-primary);
+}
+
+[data-theme="light"] #navbar {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 2px solid var(--border);
+}
+
+[data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+[data-theme="light"] .terminal-header {
+    background: var(--bg-terminal-header);
+    border-bottom: 1px solid var(--border);
+}
+
+[data-theme="light"] .terminal-content .terminal-line {
+    color: #333333;
+}
+
+[data-theme="light"] .terminal-prompt {
+    color: #0bdc79;
+}
+
+[data-theme="light"] .terminal-path {
+    color: #3b78ff;
+}
+
+[data-theme="light"] .hero-terminal .terminal-window {
+    background: var(--bg-terminal);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .project-card {
+    background: var(--bg-secundary);
+    border: 1px solid var(--border);
+}
+
+[data-theme="light"] .project-image {
+    background: linear-gradient(135deg, #e5e5e5 0%, #d5d5d5 100%);
+}
+
+[data-theme="light"] .skill-item {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="light"] .skill-item:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .contact-form {
+    background: var(--bg-secundary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+}
+
+[data-theme="light"] .form-group input:focus,
+[data-theme="light"] .form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .floating-social .social-link {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .floating-social .social-link:hover {
+    color: #e5e5e5;
+}
+
+[data-theme="light"] .modal-close,
+[data-theme="light"] .modal-nav {
+    background: var(--bg-primary);
+}
+
+[data-theme="light"] .modal-close:hover,
+[data-theme="light"] .modal-nav:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+[data-theme="light"] .image-modal {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+[data-theme="light"] .theme-dropdown,
+[data-theme="light"] .lang-dropdown {
+    background: var(--bg-primary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .theme-btn,
+[data-theme="light"] .lang-btn {
+    background: transparent
+}
+
+[data-theme="light"] footer {
+    background: var(--bg-secundary);
+    border-top: 2px solid var(--border);
+}
+
+[data-theme="light"] .availability-badge {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--green);
+}
+
+[data-theme="light"] .project-link {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .project-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
 }
-
-/* Aca debo cambiar todos los colores de la pagina
-
-[data-theme="light"] body {
-    
-}
-
-*/
 
 .animated-bg {
     position: absolute;
@@ -253,7 +387,7 @@ nav {
 
 .theme-btn,
 .lang-btn {
-    background: rgba(5, 5, 5, 0.8);
+    background: transparent;
     border: none;
     color: var(--text-primary);
     padding: 0.5rem 0.8rem;

@@ -54,7 +54,7 @@ function typeInTerminal() {
     const terminalContent = document.getElementById('terminalContent');
     const aboutText = [
         "Me llamo José Mercedes, tengo 18 años, soy un chico sencillo, lleno de apiraciones por cumplir y con muchas ganas de aprender y crecer tanto como persona y desarrollador. ",
-        "Me ha encantado la programacion desde pequeño, y desde entonces he estado anelando en convertirme en un gran desarrollador, y aunque aun me falta mucho por aprender, cada dia me esfuerzo por mejorar mis habilidades y conocimientos",
+        "Me ha encantado la programacion desde pequeño, y desde entonces he estado anelando en convertirme en un gran desarrollador, y aunque aun me falta mucho por aprender, cada dia me esfuerzo por mejorar mis habilidades y conocimientos.",
         "Me considero una persona autodidacta y mi objetivo es seguir desarrollando proyectos innovadores que puedan tener un impacto en donde me encuentre.",
     ];
 
