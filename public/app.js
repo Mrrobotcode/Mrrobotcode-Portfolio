@@ -196,7 +196,17 @@ applyLanguage(savedLang);
 
 const projectImages = {
     0: [
-        "img/farmacia_image_one.jpeg"
+        "img/farmacia_image_one.png",
+        "img/farmacia_image_two.png",
+        "img/farmacia_image_three.png",
+        "img/farmacia_image_four.png",
+        "img/farmacia_image_five.png",
+        "img/farmacia_image_six.png",
+        "img/farmacia_image_seven.png",
+        "img/farmacia_image_eight.png",
+        "img/farmacia_image_nine.png",
+        "img/farmacia_image_ten.png",
+        "img/farmacia_image_eleven.png"
     ],
     1: [
         "img/baberia_image_one.jpeg",
