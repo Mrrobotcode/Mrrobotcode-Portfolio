@@ -8,10 +8,10 @@ const techIcons = [
 ];
 
 let terminalTimeout = null;
-
 const translations = {
     es: {
-        navAbout: "Sobre mí",
+        navAbout: "Sobre mi",
+        navExperience: "Experiencia",
         navProjects: "Proyectos",
         navSkills: "Habilidades",
         navContact: "Contacto",
@@ -38,14 +38,24 @@ const translations = {
         aboutText2: "Me ha encantado la programacion desde pequeño, y desde entonces he estado anelando en convertirme en un gran desarrollador, y aunque aun me falta mucho por aprender, cada dia me esfuerzo por mejorar mis habilidades y conocimientos.",
         aboutText3: "Me considero una persona autodidacta y mi objetivo es seguir desarrollando proyectos innovadores que puedan tener un impacto en donde me encuentre.",
 
+        expTitle: "Experiencia",
+        expSubtitle: "Mi trayectoria profesional",
+
+        exp1Date: "Feb 2026 - Abr 2026",
+        exp1Title: "Becario de IT",
+        exp1Company: "Cementos Progreso",
+        exp1Desc: "En mi pasantía trabajé principalmente dando soporte técnico. Ayudé con mantenimiento de computadoras, instalación y configuración de sistemas operativos y programas, apoyo en redes, solución de problemas y asistencia a usuarios cuando tenían inconvenientes con sus equipos.",
+
         projectsTitle: "Proyectos",
         projectsSubtitle: "Trabajos recientes",
         project1Title: "Sistema de Farmacia",
         project1Desc: "Modulos de Ventas, Facturacion e Inventario y automatiza los reportes.",
         project2Title: "App Web de Baberia",
         project2Desc: "Automatiza las reservas, un dashboard con reportes y valoraciones.",
-        project3Title: "Remove Background App",
-        project3Desc: "Elimina el fondo de imágenes, utilizando la API de Removebg.",
+        project3Title: "Sistema de Admisiones",
+        project3Desc: "Plataforma para gestionar admisiones y administración escolar.",
+        project4Title: "Remove Background App",
+        project4Desc: "Elimina el fondo de imágenes, utilizando la API de Removebg.",
 
         skillsTitle: "Habilidades",
         skillsSubtitle: "Tecnologías con las que trabajo",
@@ -69,7 +79,8 @@ const translations = {
     },
 
     en: {
-        navAbout: "About",
+        navAbout: "About me",
+        navExperience: "Experience",
         navProjects: "Projects",
         navSkills: "Skills",
         navContact: "Contact",
@@ -96,14 +107,24 @@ const translations = {
         aboutText2: "I've loved programming since I was a kid, and since then I've been longing to become a great developer, and although I still have a lot to learn, every day I strive to improve my skills and knowledge.",
         aboutText3: "I consider myself a self-taught person and my goal is to continue developing innovative projects that can have an impact wherever I find myself.",
 
+        expTitle: "Experience",
+        expSubtitle: "My professional journey",
+
+        exp1Date: "Feb 2026 - Abr 2026",
+        exp1Title: "IT Intern",
+        exp1Company: "Cementos Progreso",
+        exp1Desc: "In my internship, I mainly worked in technical support. I helped with computer maintenance, installation and configuration of operating systems and software, network support, troubleshooting, and assisting users when they had issues with their devices.",
+
         projectsTitle: "Projects",
         projectsSubtitle: "Recent work",
         project1Title: "Pharmacy System",
         project1Desc: "Sales, Billing and Inventory modules and automates reports.",
         project2Title: "Barbershop Web App",
         project2Desc: "Automates reservations, a dashboard with reports and ratings.",
-        project3Title: "Remove Background App",
-        project3Desc: "Removes background from images using the Removebg API.",
+        project3Title: "Admissions System",
+        project3Desc: "Platform for managing admissions and school administration.",
+        project4Title: "Remove Background App",
+        project4Desc: "Removes background from images using the Removebg API.",
 
         skillsTitle: "Skills",
         skillsSubtitle: "Technologies I work with",
@@ -299,6 +320,7 @@ function changeLanguage(lang) {
     const elements = translations[lang];
 
     document.querySelector('.nav-links a[href="#sobre-mi"]').textContent = elements.navAbout;
+    document.querySelector('.nav-links a[href="#experiencia"]').textContent = elements.navExperience;
     document.querySelector('.nav-links a[href="#proyectos"]').textContent = elements.navProjects;
     document.querySelector('.nav-links a[href="#habilidades"]').textContent = elements.navSkills;
     document.querySelector('.nav-links a[href="#contacto"]').textContent = elements.navContact;
@@ -318,6 +340,17 @@ function changeLanguage(lang) {
 
     typeInTerminal(true);
 
+    document.querySelector("#experiencia .section-title").textContent = elements.expTitle;
+    document.querySelector("#experiencia .section-subtitle").textContent = elements.expSubtitle;
+
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    if (timelineItems[0]) {
+        timelineItems[0].querySelector(".timeline-date").textContent = elements.exp1Date;
+        timelineItems[0].querySelector("h3").textContent = elements.exp1Title;
+        timelineItems[0].querySelector("h4").textContent = elements.exp1Company;
+        timelineItems[0].querySelector("p").textContent = elements.exp1Desc;
+    }
+
     document.querySelector('#proyectos .section-title').textContent = elements.projectsTitle;
     document.querySelector('#proyectos .section-subtitle').textContent = elements.projectsSubtitle;
 
@@ -330,6 +363,8 @@ function changeLanguage(lang) {
     if (projectDescs[1]) projectDescs[1].textContent = elements.project2Desc;
     if (projectTitles[2]) projectTitles[2].textContent = elements.project3Title;
     if (projectDescs[2]) projectDescs[2].textContent = elements.project3Desc;
+    if (projectTitles[3]) projectTitles[3].textContent = elements.project4Title;
+    if (projectDescs[3]) projectDescs[3].textContent = elements.project4Desc;
 
     document.querySelector('#habilidades .section-title').textContent = elements.skillsTitle;
     document.querySelector('#habilidades .section-subtitle').textContent = elements.skillsSubtitle;
@@ -417,6 +452,17 @@ const projectImages = {
         "img/baberia_image_twelve.jpeg"
     ],
     2: [
+        'img/admisiones_image_one.png',
+        'img/admisiones_image_two.png',
+        'img/admisiones_image_three.png',
+        'img/admisiones_image_four.png',
+        'img/admisiones_image_five.png',
+        'img/admisiones_image_six.png',
+        'img/admisiones_image_seven.png',
+        'img/admisiones_image_eight.png',
+        'img/admisiones_image_nine.png'
+    ],
+    3: [
         'img/removegb-picture_one.png'
     ]
 };
@@ -492,6 +538,25 @@ imageModal.addEventListener('click', (e) => {
     if (e.target === imageModal) {
         closeModal();
     }
+});
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const skillItems = document.querySelectorAll('.skill-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        skillItems.forEach(item => {
+            if (filter === 'all' ) item.classList.remove('hidden');
+            else {
+                if (item.dataset.category === filter) item.classList.remove('hidden');
+                else item.classList.add('hidden');
+            }
+        });
+    });
 });
 
 (function() {
