@@ -21,7 +21,7 @@ const translations = {
         themeSystem: "Sistema",
 
         langSpanish: "Español",
-        langEnglish: "English",
+        langEnglish: "Ingles",
 
         heroTag: "Backend",
         heroTitle: "Hey, soy mrrobotcode",
@@ -60,6 +60,9 @@ const translations = {
         skillsTitle: "Habilidades",
         skillsSubtitle: "Tecnologías con las que trabajo",
 
+        skillFilterAll: "Todos",
+        skillFilterOthers: "Otros",
+
         contactTitle: "Contacto",
         contactSubtitle: "¿Tienes un proyecto en mente? ¡Hablemos!",
         contactIntro: "Hablemos sobre cómo puedo ayudarte a hacerlo realidad.",
@@ -89,7 +92,7 @@ const translations = {
         themeDark: "Dark",
         themeSystem: "System",
 
-        langSpanish: "Español",
+        langSpanish: "Spanish",
         langEnglish: "English",
 
         heroTag: "Backend",
@@ -128,6 +131,9 @@ const translations = {
 
         skillsTitle: "Skills",
         skillsSubtitle: "Technologies I work with",
+
+        skillFilterAll: "All",
+        skillFilterOthers: "Others",
 
         contactTitle: "Contact",
         contactSubtitle: "Do you have a project in mind? Let's talk!",
@@ -325,6 +331,26 @@ function changeLanguage(lang) {
     document.querySelector('.nav-links a[href="#habilidades"]').textContent = elements.navSkills;
     document.querySelector('.nav-links a[href="#contacto"]').textContent = elements.navContact;
 
+    document.querySelectorAll('button[data-theme="light"]').forEach(btn => {
+        btn.innerHTML = `<i class="fas fa-sun"></i> ${elements.themeLight}`;
+    });
+
+    document.querySelectorAll('button[data-theme="dark"]').forEach((btn) => {
+        btn.innerHTML = `<i class="fas fa-moon"></i> ${elements.themeDark}`;
+    });
+
+    document.querySelectorAll('button[data-theme="system"]').forEach((btn) => {
+        btn.innerHTML = `<i class="fas fa-desktop"></i> ${elements.themeSystem}`;
+    });
+
+    document.querySelectorAll('button[data-lang="es"]').forEach((btn) => {
+        btn.textContent = elements.langSpanish;
+    });
+
+    document.querySelectorAll('button[data-lang="en"]').forEach((btn) => {
+        btn.textContent = elements.langEnglish;
+    }); 
+
     document.querySelector('.hero-tag').textContent = elements.heroTag;
     document.querySelector('.hero h1').innerHTML = elements.heroTitle;
     document.querySelector('.hero-description').innerHTML = elements.heroDescription;
@@ -365,6 +391,9 @@ function changeLanguage(lang) {
     if (projectDescs[2]) projectDescs[2].textContent = elements.project3Desc;
     if (projectTitles[3]) projectTitles[3].textContent = elements.project4Title;
     if (projectDescs[3]) projectDescs[3].textContent = elements.project4Desc;
+
+    document.querySelector('.skills-container .skills-filter button[data-filter="all"]').textContent = elements.skillFilterAll;
+    document.querySelector('.skills-container .skills-filter button[data-filter="others"]').textContent = elements.skillFilterOthers;
 
     document.querySelector('#habilidades .section-title').textContent = elements.skillsTitle;
     document.querySelector('#habilidades .section-subtitle').textContent = elements.skillsSubtitle;
