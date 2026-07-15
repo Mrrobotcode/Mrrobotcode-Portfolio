@@ -23,7 +23,6 @@ const translations = {
         langSpanish: "Español",
         langEnglish: "Ingles",
 
-        heroTag: "Backend",
         heroTitle: "Hey, soy mrrobotcode",
         heroDescription: "Desarrollador de <strong>República Dominicana</strong> especializado en crear <strong>soluciones innovadoras</strong> con tecnologías modernas.",
         heroBadge: "Disponible para trabajar",
@@ -95,7 +94,6 @@ const translations = {
         langSpanish: "Spanish",
         langEnglish: "English",
 
-        heroTag: "Backend",
         heroTitle: "Hey, I'm mrrobotcode",
         heroDescription: "Developer from <strong>Dominican Republic</strong> specialized in creating <strong>innovative solutions</strong> with modern technologies.",
         heroBadge: "Available for work",
@@ -351,7 +349,6 @@ function changeLanguage(lang) {
         btn.textContent = elements.langEnglish;
     }); 
 
-    document.querySelector('.hero-tag').textContent = elements.heroTag;
     document.querySelector('.hero h1').innerHTML = elements.heroTitle;
     document.querySelector('.hero-description').innerHTML = elements.heroDescription;
     document.querySelector('.availability-badge').textContent = elements.heroBadge;
