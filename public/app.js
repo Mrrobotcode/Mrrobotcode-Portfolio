@@ -449,6 +449,17 @@ const savedLang = localStorage.getItem('language') || 'es';
 applyTheme(savedTheme);
 applyLanguage(savedLang);
 
+const buttonCVDownload = document.querySelector('.hero-button-cv');
+buttonCVDownload.addEventListener('click', () => {
+    if (localStorage.getItem('language') === 'es') {
+        buttonCVDownload.href = './CV_Jose_Mercedes_ES.pdf'
+        buttonCVDownload.download = 'CV_Jose_Mercedes_ES.pdf'
+    } else {
+        buttonCVDownload.href = './CV_Jose_Mercedes_EN.pdf'
+        buttonCVDownload.download = 'CV_Jose_Mercedes_EN.pdf'
+    }
+});
+
 const projectImages = {
     0: [
         "img/farmacia_image_one.png",
