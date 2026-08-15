@@ -355,6 +355,7 @@ nav {
     font-size: 0.95rem;
     transition: color 0.3s ease;
     position: relative;
+    text-transform: lowercase;
 }
 
 .nav-links a::after {
@@ -436,6 +437,7 @@ nav {
     transition: all 0.3s ease;
     position: relative;
     z-index: 100;
+    text-transform: lowercase;
 }
 
 .theme-dropdown,
@@ -1242,6 +1244,18 @@ footer {
 }
 
 @media (max-width: 968px) {
+    .nav-links a,
+    .theme-btn,
+    .lang-btn {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+    }
+
+    .theme-btn i,
+    .lang-btn i {
+        transform: scale(1.5);
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
