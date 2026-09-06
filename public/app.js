@@ -14,6 +14,7 @@ const translations = {
         navExperience: "Experiencia",
         navProjects: "Proyectos",
         navSkills: "Habilidades",
+        navCertificates: "Certificaciones",
         navContact: "Contacto",
 
         themeLight: "Claro",
@@ -62,6 +63,11 @@ const translations = {
         skillFilterAll: "Todos",
         skillFilterOthers: "Otros",
 
+        certTitle: "Certificaciones",
+        certSubtitle: "Cursos y certificados obtenidos",
+        certDate: "Septiembre 2026",
+        certViewButton: "Ver Certificado",
+
         contactTitle: "Contacto",
         contactSubtitle: "¿Tienes un proyecto en mente? ¡Hablemos!",
         contactIntro: "Hablemos sobre cómo puedo ayudarte a hacerlo realidad.",
@@ -85,6 +91,7 @@ const translations = {
         navExperience: "Experience",
         navProjects: "Projects",
         navSkills: "Skills",
+        navCertificates: "Certifications",
         navContact: "Contact",
 
         themeLight: "Light",
@@ -132,6 +139,11 @@ const translations = {
 
         skillFilterAll: "All",
         skillFilterOthers: "Others",
+
+        certTitle: "Certifications",
+        certSubtitle: "Courses and certificates obtained",
+        certDate: "September 2026",
+        certViewButton: "View Certificate",
 
         contactTitle: "Contact",
         contactSubtitle: "Do you have a project in mind? Let's talk!",
@@ -327,6 +339,7 @@ function changeLanguage(lang) {
     document.querySelector('.nav-links a[href="#experiencia"]').textContent = elements.navExperience;
     document.querySelector('.nav-links a[href="#proyectos"]').textContent = elements.navProjects;
     document.querySelector('.nav-links a[href="#habilidades"]').textContent = elements.navSkills;
+    document.querySelector('.nav-links a[href="#certificaciones"]').textContent = elements.navCertificates;
     document.querySelector('.nav-links a[href="#contacto"]').textContent = elements.navContact;
 
     document.querySelectorAll('button[data-theme="light"]').forEach(btn => {
@@ -394,6 +407,16 @@ function changeLanguage(lang) {
 
     document.querySelector('#habilidades .section-title').textContent = elements.skillsTitle;
     document.querySelector('#habilidades .section-subtitle').textContent = elements.skillsSubtitle;
+
+    document.querySelector('#certificaciones .section-title').textContent = elements.certTitle;
+    document.querySelector('#certificaciones .section-subtitle').textContent = elements.certSubtitle;
+    document.querySelectorAll('.certificate-date').forEach(date => {
+        date.textContent = elements.certDate;
+    });
+
+    document.querySelectorAll('.certificate-link').forEach(link => {
+        link.innerHTML = `${elements.certViewButton} <i class="fas fa-external-link-alt"></i>`;
+    });
 
     document.querySelector('#contacto .section-title').textContent = elements.contactTitle;
     document.querySelector('#contacto .section-subtitle').textContent = elements.contactSubtitle;
@@ -534,6 +557,9 @@ function openModal() {
 function closeModal() {
     imageModal.classList.remove('active');
     document.body.style.overflow = 'auto';
+    modalCounter.style.display = 'block';
+    modalPrev.style.display = 'flex';
+    modalNext.style.display = 'flex';
 }
 
 function updateCounter() {
@@ -575,6 +601,18 @@ imageModal.addEventListener('click', (e) => {
     if (e.target === imageModal) {
         closeModal();
     }
+});
+
+document.querySelectorAll('.certificate-image').forEach((img, index) => {
+    img.addEventListener('click', () => {
+        const imgSrc = img.querySelector('img').src;
+        modalImage.src = imgSrc;
+        modalCounter.style.display = 'none';
+        modalPrev.style.display = 'none';
+        modalNext.style.display = 'none';
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
 });
 
 const filterBtns = document.querySelectorAll('.filter-btn');
